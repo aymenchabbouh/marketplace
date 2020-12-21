@@ -17,4 +17,10 @@ export class ProductComponent implements OnInit {
     this.selectproduct.emit(product);
   }
 
+  verify() {
+    if(this.product.order_quantity< 0){
+      this.product.order_quantity = 0;
+    }
+
+  }
 }
