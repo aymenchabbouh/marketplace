@@ -19,7 +19,7 @@ export class Product {
 
   constructor(product_name: string, discount: number) {
 
-    this._id += Product.count++ ;
+    this._id = Product.count++ ;
     this._quantity = Math.floor(Math.random() * Math.floor(1000));
     this._price = Math.random()* Math.floor(1000);
     this._price =parseFloat( this.price.toPrecision(3));

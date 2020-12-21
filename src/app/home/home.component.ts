@@ -3,6 +3,7 @@ import {Product} from '../models/product.model';
 import {Panel} from '../models/panel.model';
 import {PanelLine} from '../models/panel-line.model';
 import {ProductsService} from '../services/products.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-   this.products =   this.productsService.generateProducts();
+    this.productsService.generateProducts().subscribe(products => this.products = products);
   }
   addToPanel(product: Product): boolean {
     let product_index: number = this.products.findIndex( item => item.id === product.id && item.quantity - product.order_quantity >= 0);
