@@ -2,12 +2,22 @@
 
   <div class="col-md-9">
       <div class="row">
-      <app-product *ngFor="let product of products" [product]="product" class="col-md-4 col-sm-6"></app-product>
+      <app-product *ngFor="let product of products" [product]="product" class="col-md-4 col-sm-6" (selectproduct)="addToPanel($event)"></app-product>
       </div> <!-- row.// -->
 
 
   </div>
   <div class="col-md-3">
     <app-filters></app-filters>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg " style="max-width:90%;">
+    <div class="modal-content">
+    <div class="modal-body">
+      <app-panel [panel]="panel" (selectPanelLine)="removeFromPanel($event)"></app-panel>
+    </div>
+    </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ import {Product} from '../../models/product.model';
 })
 export class ProductComponent implements OnInit {
   @Input()  public product: Product;
-  @Output() public selectproduct: EventEmitter<Product>;
+  @Output() public selectproduct: EventEmitter<Product> = new EventEmitter<Product>();
   constructor() { }
 
   ngOnInit() {

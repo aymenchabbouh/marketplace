@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Product} from '../models/product.model';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +9,10 @@ export class ProductsService {
   private products: Product[];
   constructor() {
   }
-  public generateProducts(): Product[]{
+  public generateProducts(): Observable<Product[]>{
     if(Product.count <= 0){
     this.products = [
-      new Product("Test Product 01" ,0),
+      new Product("Test Product 01" ,20),
       new Product("Test Product 02" ,0),
       new Product("Test Product 03" ,0),
       new Product("Test Product 04" ,0),
@@ -44,6 +45,6 @@ export class ProductsService {
       new Product("Test Product 30" ,0),
     ];
     }
-    return this.products;
+    return of(this.products);
   }
 }

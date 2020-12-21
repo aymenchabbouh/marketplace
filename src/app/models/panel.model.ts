@@ -9,6 +9,8 @@ export class Panel {
   private _total_ttc: number;
   private _status: PanelStatus;
   private _created: Date;
+  private _total_discount: number;
+  private _total_without_discount: number;
 
 
   get products_items(): PanelLine[] {
@@ -49,5 +51,21 @@ export class Panel {
 
   set created(value: Date) {
     this._created = value;
+  }
+
+  get total_discount(): number {
+    return this._total_discount;
+  }
+
+  set total_discount(value: number) {
+    this._total_discount = value;
+  }
+
+  get total_without_discount(): number {
+    return this._total_without_discount;
+  }
+
+  set total_without_discount(value: number) {
+    this._total_without_discount = value;
   }
 }
