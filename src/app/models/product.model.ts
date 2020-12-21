@@ -19,12 +19,14 @@ export class Product {
 
   constructor(product_name: string, discount: number) {
 
-    this._id = Product.count++ ;
+    Product.count++ ;
+    this._id = Product.count ;
     this._quantity = Math.floor(Math.random() * Math.floor(1000));
-    this._price = Math.random()* Math.floor(1000);
-    this._price =parseFloat( this.price.toPrecision(3));
+    this._price = Math.random() * Math.floor(1000);
+    this._price = parseFloat( this.price.toPrecision(3));
     this._product_name = product_name;
     this._discount = discount;
+    this.order_quantity = 1;
   }
 
   get id(): number {

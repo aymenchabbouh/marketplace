@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from '../../models/product.model';
 import {PanelLine} from '../../models/panel-line.model';
 import {Panel} from '../../models/panel.model';
@@ -11,7 +11,13 @@ import {Panel} from '../../models/panel.model';
 export class PanelComponent implements OnInit {
 
   constructor() { }
-  public panel: Panel;
+  @Input() public panel: Panel;
+  @Output() public selectPanelLine: EventEmitter<PanelLine> = new EventEmitter<PanelLine>();
+
   ngOnInit() {
   }
+  public removeProduct(panelLine: PanelLine){
+    this.selectPanelLine.emit(panelLine);
+  }
+
 }
